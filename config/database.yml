@@ -3,11 +3,13 @@ development:
   database: bringingwhat_development
   username: root
   password:
-  timeout: 5000
+  host: localhost
+
   
 test:
   adapter: mysql
   database: bringingwhat_test
   username: root
   password: 
-  timeout: 5000
+  host: localhost
+  
