@@ -1,4 +1,6 @@
 class FacebookUser < ActiveRecord::Base
+  
+  
   def self.create_from_fb(access_token)
     atts = JSON.parse(access_token.get('/me'))
     atts['facebook_id'] = atts.delete('id')

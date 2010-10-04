@@ -32,6 +32,8 @@ GEM
     addressable (2.1.2)
     arel (1.0.1)
       activesupport (~> 3.0.0)
+    authlogic (2.1.6)
+      activesupport
     builder (2.1.2)
     columnize (0.3.1)
     erubis (2.6.6)
@@ -87,6 +89,7 @@ PLATFORMS
 
 DEPENDENCIES
   addressable (= 2.1.2)
+  authlogic
   faraday (= 0.4.5)
   haml
   json

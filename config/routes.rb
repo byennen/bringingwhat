@@ -1,5 +1,7 @@
 BringingwhatCom::Application.routes.draw do
   
+  get "dashboard/index"
+
   resources :events
 
   get "authorize" => 'authorize#start'
