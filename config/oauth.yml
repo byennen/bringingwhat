@@ -3,7 +3,8 @@ defaults: &defaults
   api_secret: '80305637597253edf7b19b2dad98625f'
 
 development:
-  <<: *defaults
+  api_key: 'dd2308092ed92e9642a1b6d8e87b62ca'
+  api_secret: '8239b1395fefea0d3034434d81737141'
 
 test:
   <<: *defaults

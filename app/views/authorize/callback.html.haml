@@ -1,5 +1,7 @@
 %h1
   Welcome
   = @user.first_name + ' ' + @user.last_name
+  = image_tag('http://graph.facebook.com/'+@user.facebook_id+'/picture?type=small')
 
 %p Your Facebook account is now connected.
+= link_to 'Create Event', new_event_url

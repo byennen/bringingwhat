@@ -11,4 +11,8 @@ class FacebookUser < ActiveRecord::Base
   def post(message)
     OAuth2::AccessToken.new(OAuthClient, token).post('/me/feed', :message => message)
   end
+  
+  def event(name)
+    OAuth2::AccessToken.new(OAuthClient, token).post('/me/events', :name => name)
+  end
 end
