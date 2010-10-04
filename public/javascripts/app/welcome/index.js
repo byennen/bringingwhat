@@ -7,6 +7,6 @@ $('#welcome a').click(function() {
       'transitionIn': 'elastic',
       'transitionOut': 'elastic',
       'type': 'iframe',
-      'content': 'http://facebook.com'
+      'content': '/authorize'
   });
 });
