@@ -1,10 +1,24 @@
-%h1
-  Welcome
-  = @user.first_name + ' ' + @user.last_name
-  = image_tag('http://graph.facebook.com/'+@user.facebook_id+'/picture?type=small')
+/ = @user.first_name + ' ' + @user.last_name
+/ = image_tag('http://graph.facebook.com/'+@user.facebook_id+'/picture?type=small')
+#menu
+  %ul
+    %li= link_to 'Create Event', new_event_url
+    %li= link_to 'Profile', '#'
+    %li= link_to 'Logout', logout_url
 
-%p Your Facebook account is now connected.
-= link_to 'Create Event', new_event_url
-
-- @events.each do |event|
-  = event.name
+%table
+  %tr
+    %th Name
+    %th Start time
+    %th End time
+    %th Location
+    %th
+    %th
+    %th
+  - @events.each do |event|
+    %tr
+      %td= link_to event.name, event
+      %td= event.start_time.strftime("%b %d, %Y")
+      %td= event.end_time.strftime("%b %d, %Y")
+      %td= event.location
+      %td= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete

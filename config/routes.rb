@@ -1,22 +1,26 @@
 BringingwhatCom::Application.routes.draw do
   
-  get "user_sessions/new"
-
-  #dashboard
-  get "dashboard/index"
-
+  #events
   resources :events
-  resources :user_sessions
+  
+  
+  #dashboard
+  match 'dashboard' => 'dashboard#index', :as => :dashboard
 
   #login
-  match 'login' => "user_sessions#new",      :as => :login
-  match 'logout' => "user_sessions#destroy", :as => :logout
+  resources :user_sessions
+  match 'login' => 'user_sessions#new',      :as => :login
+  match 'logout' => 'user_sessions#destroy', :as => :logout
+  
+  #signup
+  resources :users
+  match 'signup' => 'users', :as => :signup
   
   #facebook
-  get "authorize" => 'authorize#start'
-  get "auth_callback" => 'authorize#callback'
+  get 'authorize' => 'authorize#start'
+  get 'auth_callback' => 'authorize#callback'
   
   #welcome page
-  root :to => "welcome#index"
+  root :to => 'welcome#index'
 
 end

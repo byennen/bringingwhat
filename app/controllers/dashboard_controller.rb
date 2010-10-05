@@ -1,8 +1,9 @@
 class DashboardController < ApplicationController
+  before_filter :require_user
+  
   def index
-    @user = User.find(params[:facebook_id])
-    
-    @events = Event.all
+    @events = Event.find(:all, :conditions => ["user_id = ?", current_user.id ])
+    @title = "Dashboard"
   end
 
 end

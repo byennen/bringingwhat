@@ -1,22 +1,11 @@
 class EventsController < ApplicationController
   before_filter :require_user
-  
-  # GET /events
-  # GET /events.xml
-  def index
-    @events = Event.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @events }
-      
-    end
-  end
 
   # GET /events/1
   # GET /events/1.xml
   def show
     @event = Event.find(params[:id])
+    @title = @event.name
 
     respond_to do |format|
       format.html # show.html.erb
@@ -28,7 +17,7 @@ class EventsController < ApplicationController
   # GET /events/new.xml
   def new
     @event = Event.new
-
+    @title = "Create a New Event"
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @event }
@@ -44,10 +33,11 @@ class EventsController < ApplicationController
   # POST /events.xml
   def create
     @event = Event.new(params[:event])
+    @event.user = User.find(current_user.id)
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to(@event, :notice => 'Event was successfully created.') }
+        format.html { redirect_to(dashboard_url, :notice => 'Event was successfully created.') }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
       else
         format.html { render :action => "new" }
@@ -63,7 +53,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        format.html { redirect_to(@event, :notice => 'Event was successfully updated.') }
+        format.html { redirect_to(dashboard_url, :notice => 'Event was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

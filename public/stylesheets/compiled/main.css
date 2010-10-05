@@ -303,6 +303,51 @@ body {
   background: black url("../../images/background.png") repeat-x;
   color: white; }
 
+fieldset {
+  background: #858585;
+  padding: 20px 15px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; }
+
+form label {
+  color: #f5f5f5;
+  font-size: 25px;
+  font-weight: 700;
+  text-shadow: 1px 1px 0 #888888; }
+form input[type=text], form input[type=password] {
+  width: 90%;
+  margin: 20px;
+  height: 30px;
+  font-size: 20px;
+  color: #cccccc;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; }
+form input {
+  maring: 5px;
+  font-size: 20px; }
+form textarea {
+  border: 1px solid white; }
+form .buttons {
+  background: white;
+  padding: 12px 10px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; }
+form .buttons:hover {
+  background: #3dce24;
+  color: white; }
+form p {
+  margin-bottom: 0; }
+
+.box {
+  -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.15); }
+
 #welcome {
   text-align: center;
   margin: 6em auto;
@@ -335,7 +380,7 @@ body {
   text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
   font-size: 25px;
   padding: 0;
-  margin: 7px 0 0 60px;
+  margin: 7px 0 0 170px;
   font-weight: 700;
   text-align: left; }
 
@@ -346,6 +391,29 @@ body {
   position: absolute;
   z-index: 5;
   top: 235px; }
+
+#login {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.5);
+  width: 500px;
+  margin: 60px auto 0;
+  background: black;
+  padding: 20px; }
+
+#notice, #error {
+  padding: 1px 1em; }
+
+#notice {
+  background-color: #b2e5b2;
+  color: #006600; }
+
+#error {
+  background-color: #f3c2c2;
+  color: #770000; }
 
 /*
  * FancyBox - jQuery Plugin
