@@ -1,0 +1,34 @@
+%h1 Login
+
+-#= form_for @user_session, :url => user_session_path do |f|
+-#= form_for @user_session, :url => {:controller => :user_sessions, :method => :post} do |f|
+= form_for @user_session, :url => {:action => "create"} do |f|
+  = f.error_messages
+  %div
+    = f.label :login
+    = f.text_field :login
+  %div
+    = f.label :password
+    = f.password_field :password
+  %div
+    = f.check_box :remember_me
+    = f.label :remember_me
+  %div
+    = f.submit "Login"
+    
+- form_for @user do |f|
+  = f.error_messages
+  %div
+    = f.label :username
+    = f.text_field :username
+  %div
+    = f.label :email
+    = f.text_field :email
+  %div
+    = f.label :password
+    = f.password_field :password
+  %div
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+  %div
+    = f.submit "Submit"
