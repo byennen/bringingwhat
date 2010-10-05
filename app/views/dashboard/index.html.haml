@@ -1,11 +1,5 @@
 / = @user.first_name + ' ' + @user.last_name
 / = image_tag('http://graph.facebook.com/'+@user.facebook_id+'/picture?type=small')
-#menu
-  %ul
-    %li= link_to 'Create Event', new_event_url
-    %li= link_to 'Profile', '#'
-    %li= link_to 'Logout', logout_url
-
 %table
   %tr
     %th Name

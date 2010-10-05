@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:signup, :create]
   before_filter :require_user, :only => [:show, :edit, :update]
   
+  layout 'home'
+  
   def signup
     @user = User.new
   end
