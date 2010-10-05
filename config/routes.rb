@@ -1,11 +1,13 @@
 BringingwhatCom::Application.routes.draw do
+    
+  #dashboard
+  match 'dashboard' => 'dashboard#index', :as => :dashboard
+  
+  #profiles
+  match 'profile' => 'profiles#index', :as => :profile
   
   #events
   resources :events
-  
-  
-  #dashboard
-  match 'dashboard' => 'dashboard#index', :as => :dashboard
 
   #login
   resources :user_sessions

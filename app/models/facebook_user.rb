@@ -1,5 +1,5 @@
 class FacebookUser < ActiveRecord::Base
-  
+  belongs_to :user
   
   def self.create_from_fb(access_token)
     atts = JSON.parse(access_token.get('/me'))

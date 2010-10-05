@@ -1,18 +1,23 @@
 / = @user.first_name + ' ' + @user.last_name
 / = image_tag('http://graph.facebook.com/'+@user.facebook_id+'/picture?type=small')
-%table
-  %tr
-    %th Name
-    %th Start time
-    %th End time
-    %th Location
-    %th
-    %th
-    %th
-  - @events.each do |event|
+
+- if @events.empty?
+  Welcome to BringingWhat.com.
+  = link_to 'Start by Creating a New Event.', new_event_url
+- else
+  %table
     %tr
-      %td= link_to event.name, event
-      %td= event.start_time.strftime("%b %d, %Y")
-      %td= event.end_time.strftime("%b %d, %Y")
-      %td= event.location
-      %td= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete
+      %th Name
+      %th Start time
+      %th End time
+      %th Location
+      %th
+      %th
+      %th
+    - @events.each do |event|
+      %tr
+        %td= link_to event.name, event
+        %td= event.start_time.strftime("%b %d, %Y")
+        %td= event.end_time.strftime("%b %d, %Y")
+        %td= event.location
+        %td= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete
