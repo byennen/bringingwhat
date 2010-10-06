@@ -1,5 +1,5 @@
 BringingwhatCom::Application.routes.draw do
-    
+  
   #dashboard
   match 'dashboard' => 'dashboard#index', :as => :dashboard
   
@@ -13,6 +13,9 @@ BringingwhatCom::Application.routes.draw do
   resources :user_sessions
   match 'login' => 'user_sessions#new',      :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
+  
+  #activation
+  match '/activate/:activation_code', :controller => 'activations', :action => 'create'
   
   #signup
   resources :users

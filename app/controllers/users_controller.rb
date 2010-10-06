@@ -8,13 +8,28 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
+  # def create
+  #   @user = User.new(params[:user])
+  #   if @user.save
+  #     flash[:notice] = "Registration successful."
+  #     redirect_to login_url
+  #   else
+  #     render :action => 'signup'
+  #   end
+  # end
+  
   def create
     @user = User.new(params[:user])
-    if @user.save
-      flash[:notice] = "Registration successful."
+
+    # Saving without session maintenance to skip
+    # auto-login which can't happen here because
+    # the User has not yet been activated
+    if @user.save_without_session_maintenance
+      @user.deliver_activation_instructions!
+      flash[:notice] = "Your account has been created. Please check your e-mail for your account activation instructions!"
       redirect_to login_url
     else
-      render :action => 'signup'
+      render :action => :signup
     end
   end
 
