@@ -1,8 +1,13 @@
-class Notifier < ActiveRecord::Base
+class UserMailer < ActionMailer::Base
+  default :from => "noreply@bringingwhat.com"
+
+  def registration_confirmation(user)
+    mail(:to => user.email, :subject => "Registered")
+  end
   
   def activation_instructions(user)
     subject       "Activation Instructions"
-    from          "noreply@bringingwhat.com"
+    from          "noreply@binarylogic.com" # Removed name/brackets around 'from' to resolve "555 5.5.2 Syntax error." as of Rails 2.3.3
     recipients    user.email
     sent_on       Time.now
     body          :account_activation_url => activate_url(user.perishable_token)

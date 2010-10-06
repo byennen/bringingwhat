@@ -99,6 +99,7 @@ DEPENDENCIES
   faraday (= 0.4.5)
   haml
   json
+  mail
   mysql (= 2.8.1)
   oauth2 (= 0.0.8)
   rails (= 3.0.0)

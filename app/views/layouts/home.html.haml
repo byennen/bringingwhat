@@ -12,6 +12,12 @@
     /%link{ :rel => "shortcut icon", :href => "" }
   %body
     .container_12
+      - if flash[:notice]
+        #notice
+          %p= flash[:notice]
+      - if flash[:error]
+        #error
+          %p= flash[:error]
       = yield
   = javascript_include_tag 'jquery', 'application'
   = javascript_auto_include_tags

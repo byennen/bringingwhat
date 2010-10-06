@@ -13,12 +13,12 @@ class User < ActiveRecord::Base
   
   def deliver_activation_instructions!
     reset_perishable_token!
-    Notifier.deliver_activation_instructions(self).deliver
+    UserMailer.deliver_activation_instructions(self).deliver
   end
 
   def deliver_welcome!
     reset_perishable_token!
-    Notifier.deliver_welcome(self).deliver
+    UserMailer.deliver_welcome(self).deliver
   end
   
 end

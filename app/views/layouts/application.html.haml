@@ -21,6 +21,12 @@
             %li= link_to 'Profile', profile_url
             %li= link_to 'Logout', logout_url
         #wrapper
+          - if flash[:notice]
+            #notice
+              %p= flash[:notice]
+          - if flash[:error]
+            #error
+              %p= flash[:error]
           = yield
   = javascript_include_tag 'jquery', 'application'
   = javascript_auto_include_tags

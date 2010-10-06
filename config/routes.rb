@@ -15,7 +15,7 @@ BringingwhatCom::Application.routes.draw do
   match 'logout' => 'user_sessions#destroy', :as => :logout
   
   #activation
-  match '/activate/:activation_code', :controller => 'activations', :action => 'create'
+  get 'activate/:activation_code' => 'activations#create', :as => :activate
   
   #signup
   resources :users
